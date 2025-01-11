@@ -34,6 +34,18 @@ body {
   padding: 0;
 }
 
+/* Media query para dispositivos móveis */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 40px 0; /* Aumenta o padding vertical em dispositivos móveis */
+  }
+
+  .card {
+    margin-top: -20px; /* Ajusta a margem superior em dispositivos móveis */
+    transform: translateY(-20px); /* Move o card um pouco para baixo */
+  }
+}
+
 .card {
   margin: 0 30px;
   background-color: var(--card-background-color);
