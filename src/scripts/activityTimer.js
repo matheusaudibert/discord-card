@@ -5,10 +5,10 @@ function updateActivityTime() {
   function parseTime(timeStr) {
     const parts = timeStr.split(":").map(Number);
     if (parts.length === 3) {
-      // HH:MM:SS
+      
       return parts[0] * 3600 + parts[1] * 60 + parts[2];
     } else if (parts.length === 2) {
-      // MM:SS
+      
       return parts[0] * 60 + parts[1];
     }
     return 0;
@@ -54,11 +54,11 @@ document.addEventListener("activityLoaded", function () {
 
   let totalMinutes = parseTime(timeElement.textContent);
 
-  // Limpar intervalos anteriores
+  
   if (window.activityTimer) clearInterval(window.activityTimer);
 
   window.activityTimer = setInterval(() => {
     totalMinutes++;
     timeElement.textContent = formatTime(totalMinutes);
-  }, 60000); // Atualiza a cada minuto
+  }, 60000);
 });
