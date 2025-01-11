@@ -5,21 +5,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --tooltips-color: #ffffff;
-  --font-type: "Poppins", serif;
-
-  --background-color: #000000;
-  --card-background-color: #ffffff75;
-  --guild-background-color: #00000000;
-  --shadow-color: #000000;
-
-  --name-color: #ffffff;
-  --name-highlight-color: #ffffff;
-  --text-color: #ffffff;
-  --social-color: #ffffff;
-}
-
 body {
   margin: 0 auto;
   background-color: var(--background-color);
@@ -28,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-family: var(--font-type);
+  font-family: "Poppins", serif;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -52,7 +37,7 @@ body {
 }
 
 .mouse-effect {
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(0px);
 }
 
 .avatar {
@@ -94,7 +79,7 @@ body {
 }
 
 .avatar .tooltip a {
-  color: var(--tooltips-color);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -190,7 +175,7 @@ body {
   cursor: default;
   visibility: hidden;
   background-color: rgba(0, 0, 0, 0.8);
-  color: var(--tooltips-color);
+  color: #ffffff;
   text-align: center;
   padding: 5px 10px;
   border-radius: 6px;
@@ -321,7 +306,7 @@ body {
 .music-tooltip {
   visibility: hidden;
   background-color: rgba(0, 0, 0, 0.8);
-  color: var(--tooltips-color);
+  color: #ffffff;
   text-align: center;
   padding: 5px 10px;
   border-radius: 6px;
@@ -386,7 +371,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--tooltips-color);
+  color: #ffffff;
 }
 
 .social img {

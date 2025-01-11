@@ -1,5 +1,4 @@
 import { config } from "/config/config.js";
-
 async function loadUserProfile(card, userId) {
   if (!config.profile) {
     card.style.display = "none";
@@ -29,26 +28,37 @@ async function loadUserProfile(card, userId) {
 
     handleGuild(card, guild_data);
 
+    // Hide the card if its necessary
     handleCard(card, data);
 
+    // Set the status
     const status = getStatus(data.data.status);
 
+    // Avatar section
     handleAvatar(card, data, status);
 
+    // Names section
     handleNames(card, data);
 
+    // Badges section
     handleBadges(card, data);
 
+    // Activity section
     handleActivity(card, data);
 
+    // Spotify section
     handleSpotify(card, data);
 
+    // CardActivity section
     handleActivityDisplay(card, data);
 
+    // Social section
     handleSocial(card, data);
 
+    //Only Components
     Onlys(card, data);
 
+    // Update the title of the page only for the first user
     if (userId === config.userIds[0]) {
       handlePageTitle(data);
     }
@@ -60,6 +70,8 @@ async function loadUserProfile(card, userId) {
     card.style.display = "none";
   }
 }
+
+// Helper functions for each section
 
 function handleCard(card, data) {
   if (
@@ -315,7 +327,7 @@ function handleSocial(card, data) {
     steam: "/src/assets/icons/steam.png",
   };
 
-  if (config.connections) {
+  if (config.connections && data.data.profile.connected_accounts.length > 0) {
     data.data.profile.connected_accounts.forEach((account) => {
       if (iconMap.hasOwnProperty(account.type)) {
         const socialHTML = `
@@ -327,14 +339,8 @@ function handleSocial(card, data) {
         socialContainer.innerHTML += socialHTML;
       }
     });
-  }
-
-  if (
-    data.data.profile.connected_accounts.length === 0 ||
-    !config.connections
-  ) {
-    const activityContainer = card.querySelector(".social");
-    activityContainer.style.display = "none";
+  } else {
+    socialContainer.style.display = "none";
   }
 }
 
@@ -352,10 +358,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const video = document.querySelector(".video-background video");
     const audio = document.getElementById("background-audio");
     const span = initialScreen.querySelector("span");
-    const originalTitle = document.title;
+    const originalTitle = document.title; // Armazena o título original
 
-    audio.volume = 0;
+    audio.volume = 0; // Inicializa o volume do áudio
 
+    // Função para realizar o fade-in do áudio
     function fadeInAudio(audio, duration) {
       const step = 0.1;
       const interval = duration / (1 / step);
@@ -376,7 +383,7 @@ document.addEventListener("DOMContentLoaded", function () {
       span.textContent = config.message || "Clique aqui!";
     }
 
-    initialScreen.style.pointerEvents = "none";
+    initialScreen.style.pointerEvents = "none"; // Desativa interações até o título mudar
 
     // Observa mudanças no título da página
     const titleObserver = new MutationObserver(() => {
@@ -389,6 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Inicia o observador no <title>
     titleObserver.observe(document.querySelector("title"), {
       childList: true,
       subtree: true,
@@ -398,17 +406,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initialScreen.addEventListener("click", function () {
       if (document.title === originalTitle) {
+        // Se o título ainda não mudou, não faz nada
         return;
       }
 
-      audio
-        .play()
-        .then(() => {
-          fadeInAudio(audio, 0);
-        })
-        .catch((err) => {
-          console.log("Erro ao reproduzir áudio:", err);
-        });
+      // Reproduz o vídeo e o áudio com fade-in
+      // audio
+      //   .play()
+      //   .then(() => {
+      //     fadeInAudio(audio, 3000);
+      //   })
+      //   .catch((err) => {
+      //     console.log("Erro ao reproduzir áudio:", err);
+      //   });
 
       video.play().catch((err) => {
         console.log("Erro ao reproduzir vídeo:", err);
@@ -417,6 +427,7 @@ document.addEventListener("DOMContentLoaded", function () {
       initialScreen.style.transition = "opacity 1s ease";
       initialScreen.style.opacity = "0";
 
+      // Mostra card com delay se necessário
       setTimeout(() => {
         card.classList.add("visible");
       }, config.delayTime || 0);
@@ -427,6 +438,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Função para criar um novo card
   function createCard() {
     const cardTemplate = `
       <div class="card mouse-effect">
@@ -444,27 +456,37 @@ document.addEventListener("DOMContentLoaded", function () {
     return container.firstElementChild;
   }
 
+  // Função principal para inicializar todos os cards
   function initializeCards() {
+    // Remove os cards existentes
     const existingCards = document.querySelectorAll(".card");
     existingCards.forEach((card) => card.remove());
 
+    // Cria e adiciona novos cards para cada usuário
     config.userIds.forEach((userId) => {
       const card = createCard();
       document.body.appendChild(card);
 
+      // Carrega o perfil do usuário no card
       loadUserProfile(card, userId);
 
-      const initialScreen = document.querySelector(".initial-screen");
+      // Adiciona funcionalidade para mostrar o card com transição
+      const initialScreen = document.querySelector(".initial-screen"); // Substitua pelo seletor correto
       if (initialScreen) {
         showCardWithTransition(card, initialScreen);
       }
     });
+
+    // Carrega os dados da guilda
   }
 
+  // Inicializa os cards quando o DOM estiver carregado
   initializeCards();
 });
 
 function Onlys(card, data) {
+  // Only Avatar
+
   if (
     config.avatar &&
     !config.names &&
@@ -476,6 +498,8 @@ function Onlys(card, data) {
     const Container = card.querySelector(".avatar");
     Container.style.marginBottom = "30px";
   }
+
+  // Only Names
 
   if (
     !config.avatar &&
@@ -489,6 +513,8 @@ function Onlys(card, data) {
     Container.style.marginBottom = "0px";
   }
 
+  // Only Badges
+
   if (
     !config.avatar &&
     !config.names &&
@@ -500,6 +526,8 @@ function Onlys(card, data) {
     const Container = card.querySelector(".badges");
     Container.style.marginBottom = "0px";
   }
+
+  // Only activitie
 
   if (
     !config.avatar &&

@@ -1,7 +1,7 @@
 export const config = {
   userIds: ["1274150219482660897"],
   guildId: "1313921883728515194",
-  pageTitle: "lies",
+  pageTitle: "",
   borderRadius: "10px",
   profile: true,
   avatar: true,
@@ -12,7 +12,18 @@ export const config = {
   connections: true,
   spotify: true,
   activity: true,
-  displayGuild: true,
+  displayGuild: false,
   delayTime: 2000,
   message: "welcome",
+
+  backgroundColor: "#00000000",
+  cardBackgroundColor: "#00000000",
+  guildBackgroundColor: "#00000000",
+  neonColor: "#00000000",
+
+  textColor: "#ffffff",
+  nameColor: "#ffffff",
+  nameHighlightColor: "#ffffff",
+
+  connectionsColor: "#ffffff",
 };
