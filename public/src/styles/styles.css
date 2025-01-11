@@ -10,7 +10,7 @@
   --font-type: "Poppins", serif;
 
   --background-color: #000000;
-  --card-background-color: #00000000;
+  --card-background-color: #ffffff75;
   --guild-background-color: #00000000;
   --shadow-color: #000000;
 
@@ -21,6 +21,7 @@
 }
 
 body {
+  margin: 0;
   background-color: var(--background-color);
   color: var(--name-color);
   display: flex;
@@ -29,6 +30,20 @@ body {
   min-height: 100vh;
   font-family: var(--font-type);
   overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 20px 0; /* Adiciona padding vertical */
+}
+
+/* Media query para dispositivos móveis */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 40px 0; /* Aumenta o padding vertical em dispositivos móveis */
+  }
+
+  .card {
+    margin-top: 20px; /* Ajusta a margem superior em dispositivos móveis */
+    transform: translateY(10%); /* Move o card um pouco para baixo */
+  }
 }
 
 .card {
@@ -41,6 +56,8 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s ease;
+  position: relative;
+  margin: 0;
 }
 
 .card.visible {
@@ -49,7 +66,7 @@ body {
 }
 
 .mouse-effect {
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(20px);
 }
 
 .avatar {
@@ -387,7 +404,7 @@ body {
 }
 
 .social img {
-  width: 100%;
+  width: 20px;
   height: 20px;
   filter: brightness(0) invert(1);
   transition: all 0.3s;
