@@ -10,7 +10,7 @@
   --font-type: "Poppins", serif;
 
   --background-color: #000000;
-  --card-background-color: #ffffff75;
+  --card-background-color:rgba(0, 0, 0, 0);
   --guild-background-color: #00000000;
   --shadow-color: #000000;
 
@@ -52,7 +52,7 @@ body {
 }
 
 .mouse-effect {
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(0px);
 }
 
 .avatar {
