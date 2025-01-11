@@ -41,8 +41,8 @@ body {
   }
 
   .card {
-    margin-top: 20px; /* Ajusta a margem superior em dispositivos móveis */
-    transform: translateY(10%); /* Move o card um pouco para baixo */
+    margin-top: 0px; /* Ajusta a margem superior em dispositivos móveis */
+    transform: translateY(0px); /* Move o card um pouco para baixo */
   }
 }
 
