@@ -37,8 +37,8 @@ body {
 /* Media query para dispositivos móveis */
 @media screen and (max-width: 768px) {
   .card {
-    margin-top: -100px; /* Ajusta a margem superior em dispositivos móveis */
-    transform: translateY(-100px); /* Move o card um pouco para baixo */
+    margin-top: -50px; /* Ajusta a margem superior em dispositivos móveis */
+    transform: translateY(-50px); /* Move o card um pouco para baixo */
   }
 }
 
