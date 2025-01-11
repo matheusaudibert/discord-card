@@ -1,4 +1,4 @@
-import { config } from "/src/config/config.js";
+import { config } from "src/config/config.js";
 
 function timeToSeconds(time) {
   const parts = time.split(":").map(Number);
