@@ -109,7 +109,7 @@ function handleAvatar(card, data, status) {
       </a>
       ${
         config.status
-          ? `<img id="avatar-status" src="./src/assets/status/${data.data.status}.png" />`
+          ? `<img id="avatar-status" src="/src/assets/status/${data.data.status}.png" />`
           : ""
       }
       ${
@@ -278,10 +278,10 @@ function handleGuild(card, guild_data) {
                 <img src="${guild_data.data.emoji}" alt="server-emoji" />
               </div>
               <div class="counter">
-                <img src="./src/assets/status/online.png" />
+                <img src="/src/assets/status/online.png" />
                 <span class="online">${guild_data.data.member_online_count} Online</span>
                 <span>&#8203;</span><span>&#8203;</span>
-                <img src="./src/assets/status/invisible.png" />
+                <img src="/src/assets/status/invisible.png" />
                 <span class="online">${memberCount} Members</span>
               </div>
             </div>
@@ -301,18 +301,18 @@ function handleSocial(card, data) {
   const socialContainer = card.querySelector(".social");
   socialContainer.innerHTML = "";
   const iconMap = {
-    github: "./src/assets/icons/github.png",
-    spotify: "./src/assets/icons/spotify.png",
-    twitch: "./src/assets/icons/twitch.png",
-    youtube: "./src/assets/icons/youtube.png",
-    reddit: "./src/assets/icons/reddit.png",
-    twitter: "./src/assets/icons/x.png",
-    tiktok: "./src/assets/icons/tiktok.png",
-    instagram: "./src/assets/icons/instagram.png",
-    roblox: "./src/assets/icons/roblox.png",
-    ebay: "./src/assets/icons/ebay.png",
-    domain: "./src/assets/icons/domain.png",
-    steam: "./src/assets/icons/steam.png",
+    github: "/src/assets/icons/github.png",
+    spotify: "/src/assets/icons/spotify.png",
+    twitch: "/src/assets/icons/twitch.png",
+    youtube: "/src/assets/icons/youtube.png",
+    reddit: "/src/assets/icons/reddit.png",
+    twitter: "/src/assets/icons/x.png",
+    tiktok: "/src/assets/icons/tiktok.png",
+    instagram: "/src/assets/icons/instagram.png",
+    roblox: "/src/assets/icons/roblox.png",
+    ebay: "/src/assets/icons/ebay.png",
+    domain: "/src/assets/icons/domain.png",
+    steam: "/src/assets/icons/steam.png",
   };
 
   if (config.connections) {

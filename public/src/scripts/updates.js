@@ -181,7 +181,7 @@ if (config.spotify === true || config.activity === true) {
       if (data.status) {
         const statusElement = document.querySelector("#avatar-status");
         if (statusElement) {
-          statusElement.src = `./src/assets/status/${data.status}.png`;
+          statusElement.src = `/src/assets/status/${data.status}.png`;
         }
       }
 
