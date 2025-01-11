@@ -21,7 +21,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   background-color: var(--background-color);
   color: var(--name-color);
   display: flex;
@@ -31,19 +31,10 @@ body {
   font-family: var(--font-type);
   overflow-x: hidden;
   overflow-y: hidden;
-  padding: 0;
-}
-
-/* Media query para dispositivos móveis */
-@media screen and (max-width: 768px) {
-  .card {
-    margin-top: -50px; /* Ajusta a margem superior em dispositivos móveis */
-    transform: translateY(-50px); /* Move o card um pouco para baixo */
-  }
 }
 
 .card {
-  margin: 0 30px;
+  margin: 0 auto;
   background-color: var(--card-background-color);
   padding: 25px 20px 25px 20px;
   width: 330px;
@@ -53,7 +44,6 @@ body {
   visibility: hidden;
   transition: opacity 1s ease;
   position: relative;
-  margin: 0;
 }
 
 .card.visible {
