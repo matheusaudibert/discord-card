@@ -13,16 +13,16 @@ export const config = {
   spotify: true,
   activity: true,
   displayGuild: true,
-  delayTime: 1000,
+  delayTime: 0,
   message: "welcome",
 
-  backgroundColor: "#00000000",
+  backgroundColor: "#000000",
   cardBackgroundColor: "#00000000",
   guildBackgroundColor: "#00000000",
   neonColor: "#00000000",
 
   textColor: "#ffffff",
-  nameColor: "#ffffff",
+  nameColor: "#000000",
   nameHighlightColor: "#ffffff",
 
   connectionsColor: "#ffffff",
