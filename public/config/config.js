@@ -1,7 +1,7 @@
 export const config = {
   userIds: ["1274150219482660897"],
   guildId: "1330322535618969736",
-  pageTitle: "",
+  pageTitle: "internet hustler",
   borderRadius: "10px",
   profile: true,
   avatar: true,
